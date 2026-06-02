@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pondok Pesantren Miftahul Huda 453 - PSB 2026</title>
+    <style>
+        /* --- CORE DESIGN SYSTEM --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --hijau-tua: #0F5132;
+            --hijau-pohon: #148A36;
+            --hijau-muda: #D1E7DD;
+            --emas-lembut: #D4AF37;
+            --putih: #FFFFFF;
+            --abu-bg: #F8F9FA;
+            --teks-gelap: #212529;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            background-color: var(--abu-bg);
+            color: var(--teks-gelap);
+            line-height: 1.6;
+            padding-top: 75px;
+            padding-bottom: 60px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            color: var(--hijau-tua);
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .section-title h2::after {
+            content: '۞';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--emas-lembut);
+            font-size: 1.1rem;
+        }
+
+        /* --- DESKTOP NAVIGATION BAR --- */
+        header {
+            background-color: var(--putih);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 45px;
+            height: 45px;
+            background: var(--hijau-tua);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emas-lembut);
+            font-weight: bold;
+            font-size: 0.7rem;
+            border: 2px solid var(--emas-lembut);
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .brand-text h1 {
+            font-size: 1rem;
+            color: var(--hijau-tua);
+            font-weight: 700;
+        }
+
+        .brand-text p {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--teks-gelap);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--hijau-pohon);
+        }
+
+        .btn-nav-daftar {
+            background-color: var(--hijau-tua);
+            color: var(--putih) !important;
+            border-radius: 20px;
+        }
+
+        /* --- MOBILE BOTTOM NAVIGATION --- */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--putih);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            justify-content: space-around;
+            padding: 8px 0;
+        }
+
+        .mobile-bottom-nav a {
+            text-decoration: none;
+            color: #6c757d;
+            font-size: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .mobile-bottom-nav a span.icon {
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+        }
+
+        .mobile-bottom-nav a.active-nav {
+            color: var(--hijau-tua);
+        }
+
+        /* --- HERO SECTION WITH FACE OF BROCHURE --- */
+        .hero-container {
+            background: linear-gradient(135deg, #093a22 0%, #115730 100%);
+            color: var(--putih);
+            overflow: hidden;
+            border-radius: 0 0 30px 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .hero-text {
+            padding-right: 20px;
+        }
+
+        .hero-tag {
+            background: rgba(255,255,255,0.15);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero-text h2 {
+            font-size: 2.3rem;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .hero-text .tahun {
+            font-size: 2rem;
+            color: var(--emas-lembut);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .hero-face-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .face-placeholder {
+            width: 100%;
+            max-width: 320px;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+            border: 3px solid var(--emas-lembut);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .face-placeholder:hover {
+            transform: scale(1.04) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .face-placeholder p {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--emas-lembut);
+        }
+
+        /* --- GRID UTAMA LAYOUT --- */
+        .grid-1-1 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: stretch; /* Memaksa tinggi card kanan-kiri sejajar sama rata */
+        }
+
+        .card-box {
+            background: var(--putih);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            width: 100%;
+        }
+
+        /* Visi Misi & REVISI TATALETAK TOKOH PIMPINAN */
+        .visimisi-card { border-top: 4px solid var(--hijau-tua); display: flex; flex-direction: column; justify-content: center; }
+        .block-visi { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #dee2e6; }
+        .block-visi h3, .block-misi h3, .block-info-kegiatan h3 { color: var(--hijau-pohon); margin-bottom: 10px; }
+        .block-misi ul { list-style: none; }
+        .block-misi ul li { position: relative; padding-left: 20px; margin-bottom: 10px; font-size: 0.95rem;}
+        .block-misi ul li::before { content: '✔'; position: absolute; left: 0; color: var(--hijau-tua); font-weight: bold; }
+
+        .pimpinan-card { 
+            border-top: 4px solid var(--emas-lembut); 
+            background: linear-gradient(to bottom, #ffffff, #f3f9f5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Membuat susunan konten vertikal terbagi rapi */
+            gap: 15px;
+        }
+
+        .pimpinan-info-wrapper {
+            text-align: center;
+        }
+
+        /* REVISI: Efek Shape Lingkaran Kyai Premium dengan Hover */
+        .pimpinan-avatar { 
+            width: 130px; 
+            height: 130px; 
+            border-radius: 50%; 
+            background: #cbd5e1; 
+            margin: 0 auto 12px auto; 
+            border: 4px solid var(--hijau-tua); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 0.75rem; 
+            font-weight: bold;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(15, 81, 50, 0.15);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .pimpinan-avatar:hover {
+            transform: scale(1.1) rotate(3deg);
+            border-color: var(--emas-lembut);
+        }
+
+        .pimpinan-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        /* REVISI: Efek Bingkai Melengkung Emas Dewan Asatidz dengan Hover */
+        .asatidz-box { 
+            background: #fff; 
+            padding: 8px; 
+            border-radius: 12px; 
+            border: 2px solid var(--emas-lembut); 
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .asatidz-box:hover {
+            transform: translateY(-4px);
+            border-color: var(--hijau-tua);
+            box-shadow: 0 10px 20px rgba(15, 81, 50, 0.15);
+        }
+
+        .asatidz-box img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* --- KEGIATAN & EKSTRA --- */
+        .bg-pattern { background-color: var(--hijau-muda); background-image: radial-gradient(var(--hijau-pohon) 0.5px, transparent 0.5px), radial-gradient(var(--hijau-pohon) 0.5px, var(--hijau-muda) 0.5px); background-size: 20px 20px; background-position: 0 0, 10px 10px; }
+        .ekstra-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .ekstra-tag { background: var(--hijau-tua); color: var(--putih); padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 500; }
+
+        /* --- JADWAL HARIAN TABEL --- */
+        .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; border: 1px solid #dee2e6; margin-top: 10px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; min-width: 400px; }
+        th { background-color: var(--hijau-pohon); color: var(--putih); padding: 10px; font-size: 0.85rem; }
+        td { padding: 8px 10px; border-bottom: 1px solid #dee2e6; font-size: 0.85rem; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+
+        /* --- REVISI: EFEK HOVER ADVANCED POLAROID FOTO KEGIATAN --- */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .polaroid-card {
+            background: var(--putih);
+            padding: 10px 10px 20px 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Kemiringan awal bergaya album foto acak */
+        .polaroid-card:nth-child(odd) { transform: rotate(-1.5deg); }
+        .polaroid-card:nth-child(even) { transform: rotate(1.5deg); }
+
+        /* Aksi Hover Premium */
+        .polaroid-card:hover {
+            transform: scale(1.06) rotate(0deg) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(15, 81, 50, 0.18);
+            border-color: var(--emas-lembut);
+            z-index: 10;
+        }
+
+        .polaroid-img-frame {
+            width: 100%;
+            height: 160px;
+            background-color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #475569;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            border: 1px solid #e2e8f0;
+            transition: background-color 0.3s;
+        }
+
+        .polaroid-card:hover .polaroid-img-frame {
+            background-color: var(--hijau-muda);
+        }
+
+        .polaroid-card p {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #64748b;
+        }
+
+        /* --- MATAPELAJARAN KOMPLET (100% SESUAI BROSUR) --- */
+        .mapel-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .mapel-card {
+            background: var(--putih);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease;
+        }
+        
+        .mapel-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .mapel-header {
+            color: var(--putih);
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .mapel-header.ibtida { background-color: #198754; }
+        .mapel-header.tsanawy { background-color: #0b5ed7; }
+        .mapel-header.mahad { background-color: #7a1c1c; }
+
+        .mapel-list { padding: 15px; list-style: none; }
+        .mapel-list li { padding: 6px 0; border-bottom: 1px dashed #f1f1f1; font-size: 0.85rem; color: #334155; }
+        .mapel-list li::before { content: "▫ "; color: var(--hijau-pohon); font-weight: bold; }
+
+        /* --- BARU: DOWNLOAD BROSUR AREA --- */
+        .download-section {
+            background-color: #fff;
+            border: 2px dashed var(--hijau-tua);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .download-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .download-btn {
+            background-color: var(--hijau-tua);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .download-btn:hover {
+            background-color: var(--putih);
+            color: var(--hijau-tua);
+            border-color: var(--hijau-tua);
+            transform: translateY(-2px);
+        }
+
+        /* --- BIAYA BAR --- */
+        .biaya-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; }
+        .biaya-row.total { font-size: 1.1rem; font-weight: bold; color: var(--emas-lembut); border-top: 2px dashed rgba(255,255,255,0.3); border-bottom: none; margin-top: 10px; padding-top: 10px; }
+
+        /* --- FOOTER --- */
+        footer { background-color: #0b1a11; color: #cbd5e1; padding: 40px 20px 20px 20px; border-top: 4px solid var(--emas-lembut); }
+        .footer-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-about h3, .footer-contact h3 { color: var(--putih); margin-bottom: 12px; font-size: 1.1rem; }
+        .footer-contact p { font-size: 0.85rem; margin-bottom: 10px; }
+        .footer-bottom { text-align: center; padding-top: 15px; font-size: 0.75rem; color: #475569; }
+
+        /* --- MEDIA QUERIES SAKTI: RESPONSIVE MOBILE VIEW --- */
+        @media (max-width: 850px) {
+            body { padding-top: 60px; }
+            header nav { display: none; }
+            .mobile-bottom-nav { display: flex; }
+            
+            .hero-layout { grid-template-columns: 1fr; text-align: center; padding: 30px 15px; }
+            .hero-text { padding-right: 0; margin-bottom: 25px; }
+            .hero-text h2 { font-size: 1.6rem; }
+            .hero-text .tahun { font-size: 1.4rem; }
+
+            .grid-1-1, .footer-layout, .mapel-container { grid-template-columns: 1fr !important; gap: 20px; }
+            .card-box { padding: 18px; }
+            .section-title h2 { font-size: 1.4rem; }
+            .polaroid-card { transform: rotate(0deg) !important; } /* Matikan rotasi di mobile agar rapi sejajar */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- DESKTOP TOP NAV -->
+    <header>
+        <div class="nav-container">
+            <div class="brand">
+                <img src="logonya.png" alt="Logo Miftahul Huda" style="width: 50px; height: 50px; object-fit: contain;">
+                <div class="brand-text">
+                    <h1>Miftahul Huda 453</h1>
+                    <p>Sinar Jaya Sinar Mulya, Kec Banyumas, Kab Pringsewu, Lampung</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#kegiatan">Kegiatan</a></li>
+                    <li><a href="#kurikulum">Kurikulum</a></li>
+                    <li><a href="#pendaftaran">Pendaftaran</a></li>
+                    <li><a href="#galeri">Foto</a></li>
+                    <li><a href="#kontak" class="btn-nav-daftar">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <div class="mobile-bottom-nav">
+        <a href="#home" class="active-nav"><span class="icon">🕌</span>Beranda</a>
+        <a href="#kegiatan"><span class="icon">📅</span>Kegiatan</a>
+        <a href="#kurikulum"><span class="icon">📖</span>Kitab</a>
+        <a href="#pendaftaran"><span class="icon">📝</span>Daftar</a>
+        <a href="#kontak"><span class="icon">📞</span>Kontak</a>
+    </div>
+
+    <!-- HERO SECTION WITH FACE UTAMA -->
+    <div class="hero-container" id="home">
+        <div class="hero-layout">
+            <div class="hero-text">
+                <span class="hero-tag">Penerimaan Santri Baru</span>
+                <h2>PONDOK PESANTREN MIFTAHUL HUDA 453</h2>
+                <div class="tahun">TAHUN AJARAN</div>
+                <div class="tahun">2026-2027 M/1446-1447 H</div>
+                <p>Menjadikan Pon-Pes Miftahul Huda 453 sebagai pusat pendidikan agama Islam unggulan secara nasional.</p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFIL & REVISI TATALETAK TOKOH PIMPINAN (GRID-1-1 SEJAJAR) -->
+    <section id="profil">
+        <div class="grid-1-1">
+            <div class="card-box visimisi-card">
+                <div class="block-visi">
+                    <h3>Visi</h3>
+                    <p>Menjadikan Pon-Pes Miftahul Huda 453 Sebagai pusat pendidikan agama islam unggulan secara nasional, dalam rangka penghayatan atas ke Esaan Alloh SWT.</p>
+                </div>
+                <div class="block-misi">
+                    <h3>Misi (Mencetak Santri Menjadi)</h3>
+                    <ul>
+                        <li><strong>Ulama'ul 'Amilin</strong>: Ulama yang mampu mengamalkan ilmunya.</li>
+                        <li><strong>Imamal Muttaqin</strong>: Memimpin Ummat untuk bertaqwa.</li>
+                        <li><strong>Muttaqin</strong>: Pribadi Muslim yang bertaqwa.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CARD KANAN SEJAJAR SEMPURNA -->
+            <div class="card-box pimpinan-card">
+                <div class="pimpinan-info-wrapper">
+                    <!-- REVISI SHAPE BULAT & HOVER -->
+                    <div class="pimpinan-avatar">
+                        <img src="ang.jpeg" alt="KH. M Syamsul Hadi">
+                    </div>
+                    <h3>KH. M Syamsul Hadi</h3>
+                    <p style="color: var(--hijau-pohon); font-weight:600; font-size:0.85rem; margin-bottom: 5px;">Pimpinan Umum</p>
+                </div>
+                
+                <!-- REVISI LENGKUNG EMAS BINGKAI & HOVER -->
+                <div class="asatidz-box">
+                    <img src="dewaan.png" alt="Dewan Asatidz">
+                    <p style="font-weight: bold; margin-top: 6px; font-size: 0.85rem; color: var(--hijau-tua);">Dewan Asatidz Pesantren</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEGIATAN & JADWAL HARIAN -->
+    <section class="bg-pattern" id="kegiatan">
+        <div class="card-box">
+            <div class="section-title">
+                <h2>Kegiatan & Jadwal Harian</h2>
+            </div>
+            <p style="font-style: italic; font-size:0.9rem; margin-bottom:15px; color:#555;">Mengacu pada kurikulum yang telah ditetapkan oleh Pendiri Pondok Pesantren Miftahul Huda Pusat.</p>
+            <ul style="padding-left:15px; font-size:0.9rem; margin-bottom:20px;">
+                <li>Tahun Ajaran Pesantren dimulai tanggal 10 Syawal s/d 20 Romadlon.</li>
+                <li>Setiap hari Jum'at santri diistirahatkan dari rutinitas kegiatan harian.</li>
+                <li>Libur panjang setahun sekali (20 Romadlon s/d 10 Syawal / selama 20 hari).</li>
+            </ul>
+
+            <h3 style="color: var(--hijau-tua); font-size:1.1rem; margin-bottom:10px;">Agenda Jadwal Harian:</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Waktu</th><th>Jadwal Kegiatan Harian</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>03.30-04.00</td><td>Bangun Malam</td></tr>
+                        <tr><td>04.00-04.30</td><td>Sholat Tahajud & Tadarus Qur'an</td></tr>
+                        <tr><td>04.30-05.00</td><td>Sholat Subuh Berjamaah</td></tr>
+                        <tr><td>05.00-06.00</td><td>Sorogan</td></tr>
+                        <tr><td>06.00-06.30</td><td>Sholat Dluha Bersama</td></tr>
+                        <tr><td>06.30-08.00</td><td>Masuk Kelas / Belajar di Kelas</td></tr>
+                        <tr><td>08.00-09.00</td><td>Makan Pagi</td></tr>
+                        <tr><td>09.00-10.00</td><td>Menghafal Bersama</td></tr>
+                        <tr><td>10.00-11.30</td><td>Istirahat</td></tr>
+                        <tr><td>11.30-12.00</td><td>Persiapan Sholat Dzuhur</td></tr>
+                        <tr><td>12.30-13.30</td><td>Sholat Dzuhur Berjamaah</td></tr>
+                        <tr><td>13.30-14.30</td><td>Masuk Kelas / Belajar di Kelas</td></tr>
+                        <tr><td>14.30-15.00</td><td>Ngaji Umum</td></tr>
+                        <tr><td>15.00-15.30</td><td>Persiapan Sholat Ashar</td></tr>
+                        <tr><td>15.30-16.00</td><td>Sholat Ashar Berjamaah</td></tr>
+                        <tr><td>16.00-17.00</td><td>Masuk Kelas / Belajar di Kelas</td></tr>
+                        <tr><td>17.00-17.30</td><td>Makan Sore</td></tr>
+                        <tr><td>17.30-18.00</td><td>Persiapan Sholat Magrib</td></tr>
+                        <tr><td>18.00-18.30</td><td>Sholat Magrib Berjamaah</td></tr>
+                        <tr><td>18.30-19.00</td><td>Sorogan Al-Qur'an</td></tr>
+                        <tr><td>19.00-20.00</td><td>Ngaji Umum</td></tr>
+                        <tr><td>20.00-20.30</td><td>Sholat Isya Berjamaah</td></tr>
+                        <tr><td>20.30-21.30</td><td>Masuk Kelas / Belajar di Kelas</td></tr>
+                        <tr><td>21.30-22.00</td><td>Menghafal Bersama</td></tr>
+                        <tr><td>22.00-03.30</td><td>Istirahat Malam</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="color: var(--hijau-tua); font-size:1.1rem; margin-top:20px; margin-bottom:5px;">Ekstrakurikuler:</h3>
+            <div class="ekstra-list">
+                <span class="ekstra-tag">1. Evaluasi Rutinan</span>
+                <span class="ekstra-tag">3. Olahraga</span>
+                <span class="ekstra-tag">4. Rihlah Ilmiah</span>
+                <span class="ekstra-tag">5. Final Evaluasi</span>
+                <span class="ekstra-tag">6. Orientasi Santri</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOTO KEGIATAN (EFEK ADVANCED HOVER POLAROID) -->
+    <section id="galeri">
+        <div class="section-title">
+            <h2>Dokumentasi Foto Kegiatan</h2>
+        </div>
+        <div class="galeri-grid">
+            <div class="polaroid-card">
+                <img src="Keg_1.JPG" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+            </div>
+            <div class="polaroid-card">
+                  <img src="Keg_2.png" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+            </div>
+            <div class="polaroid-card">
+                  <img src="Keg_3.JPG" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+            </div>
+            <div class="polaroid-card">
+                  <img src="Keg_8.png" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+            </div>
+            <div class="polaroid-card">
+                 <img src="Keg_4.png" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+                
+            </div>
+            <div class="polaroid-card">
+                <img src="Keg_9.png" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+            </div>
+            <div class="polaroid-card">
+                <img src="Keg_6.png" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+            </div>
+            <div class="polaroid-card">
+                <img src="Keg_7.png" alt="Santri Mengaji" style="width: 100%; height: 100%; object-fit: cover;">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- MATA PELAJARAN KITAB KUNING LENGKAP -->
+    <section id="kurikulum" style="background-color: #f1f5f9;">
+        <div class="section-title">
+            <h2>Mata Pelajaran Per Kelas</h2>
+        </div>
+        <div class="mapel-container">
+            <!-- 1 Ibtida -->
+            <div class="mapel-card">
+                <div class="mapel-header ibtida">1 Ibtida</div>
+                <ul class="mapel-list">
+                    <li>1. Tauhud Rancang</li><li>2. Fiqih Rancang</li><li>3. Syahadatain</li><li>4. Rakaatan Sholat</li><li>5. Bahasa Arab Jilid 1</li><li>6. Akhlaq Lil Banin Juz 1</li><li>7. Juz 'Amma</li><li>8. Cabang Iman</li><li>9. Tarikh Rancang</li><li>10. Tajwid</li>
+                </ul>
+            </div>
+            <!-- 2 Ibtida -->
+            <div class="mapel-card">
+                <div class="mapel-header ibtida">2 Ibtida</div>
+                <ul class="mapel-list">
+                    <li>1. Tijan Ad-Darury</li><li>2. Safinatunnaja</li><li>3. Jurumiyah</li><li>4. Tashrifan</li><li>5. Bahasa Arab (Jilid 2)</li><li>6. Akhlaq Lil Banin (Juz 2)</li><li>7. Khulasoh Nurul Yaqin (Juz 1)</li>
+                </ul>
+            </div>
+            <!-- 3 Ibtida -->
+            <div class="mapel-card">
+                <div class="mapel-header ibtida">3 Ibtida</div>
+                <ul class="mapel-list">
+                    <li>1. Majmu'atul Aqidah (Juz 1 & 2)</li><li>2. Riyadlul Badi'ah</li><li>3. Shorof Kaelany</li><li>4. Qiyasan</li><li>5. Bahasa Arab (Jilid 3)</li><li>6. Akhlaq Lil Banin (Juz 3)</li><li>7. Khulasoh Nurul Yaqin (Juz 2)</li><li>8. Tanqihul Qoul</li><li>9. Hadist Arba'in Nawawy</li><li>10. Daqoiqul Akhbar</li>
+                </ul>
+            </div>
+            <!-- 1 Tsanawy -->
+            <div class="mapel-card">
+                <div class="mapel-header tsanawy">1 Tsanawy</div>
+                <ul class="mapel-list">
+                    <li>1. Kifayatul 'Awam</li><li>2. Fathul Qorib (Juz 1 & 2)</li><li>3. Alfiyyah Ibnu Malik 1</li><li>4. Tafsir Jalalain</li><li>5. Riyadlus Sholihin</li><li>6. Kifayatul Atqiya</li><li>7. Kifayatul Akhyar</li>
+                </ul>
+            </div>
+            <!-- 2 Tsanawy -->
+            <div class="mapel-card">
+                <div class="mapel-header tsanawy">2 Tsanawy</div>
+                <ul class="mapel-list">
+                    <li>1. Jauhar Tauhid</li><li>2. Fathul Mu'in (Juz 1 & 2)</li><li>3. Alfiyyah Ibnu Malik 2</li><li>4. Shohih Bukhori (Juz 1 & 2)</li><li>5. Shohih muslim (Juz 1)</li><li>6. Istiarah</li><li>7. Waroqot</li><li>8. Matan Jauhar Tauhid</li>
+                </ul>
+            </div>
+            <!-- 3 Tsanawy -->
+            <div class="mapel-card">
+                <div class="mapel-header tsanawy">3 Tsanawy</div>
+                <ul class="mapel-list">
+                    <li>1. Khoridatul bahiyyah</li><li>2. Fathul Mu'in (Juz 3 & 4)</li><li>3. Sulamul Munawaroq</li><li>4. Shohih Bukhori (Juz 4 & 4)</li><li>5. Shohih muslim (Juz 2)</li><li>6. Rohbiyah</li><li>7. Jauhar Maknun</li><li>8. Matan Jauhar Maknun</li>
+                </ul>
+            </div>
+            <!-- Lanjutan Khusus -->
+            <div class="mapel-card" style="grid-column: 1 / -1;">
+                <div class="mapel-header mahad">Pendidikan Formal Tingkat Lanjut & Tinggi</div>
+                <div style="padding:15px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+                    <span class="ekstra-tag" style="background:#551a1a;">Madrasah Ibtidaiyah (MI) Islamiyah</span>
+                    <span class="ekstra-tag" style="background:#551a1a;">MTs SA Miftahul Huda</span>
+                    <span class="ekstra-tag" style="background:#551a1a;">Paket C / Setara SMA/SMK/MA</span>
+                    <span class="ekstra-tag" style="background:#551a1a;">Perguruan Tinggi STIT Pringsewu</span>
+                    <span class="ekstra-tag" style="background:var(--emas-lembut); color:#000;">Tersedia Tingkat: Ma'hadul Aly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENDAFTARAN & RINCIAN BIAYA + BARU: TOMBOL DOWNLOAD BROSUR ASLI -->
+    <section id="pendaftaran">
+        <div class="section-title">
+            <h2>Informasi Penerimaan Santri Baru</h2>
+        </div>
+        <div class="grid-1-1">
+            <div class="card-box" style="border-left: 5px solid var(--hijau-pohon); display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="color:var(--hijau-tua); margin-bottom:15px;">Syarat Pendaftaran</h3>
+                    <ul class="card-syarat" style="list-style:none;">
+                        <li>Foto Copy Akta Kelahiran</li>
+                        <li>Foto Copy Kartu Keluarga</li>
+                        <li>Foto Copy KTP Orang Tua</li>
+                        <li>Foto Copy Ijazah Terakhir</li>
+                        <li>Foto Copy Kartu BPJS, KIP, KIS & PKH (Jika Ada)</li>
+                        <li>Materai Rp. 10.000 2 Pcs</li>
+                        <li>Mengikrarkan Janji Pelajar</li>
+                        <li>Ijab Qobul dengan Pimpinan Umum</li>
+                    </ul>
+                </div>
+                
+                <!-- FITUR BARU: TOMBOL DOWNLOAD 2 FILE BROSUR VERBATIM -->
+                <div class="download-section">
+                    <p style="font-weight: bold; color: var(--hijau-tua); font-size: 0.9rem;">💾 Download Brosur Resmi (.JPG)</p>
+                    <div class="download-btn-group">
+                        <a href="Brosur_depan.jpeg" download class="download-btn">📂 Brosur Depan</a>
+                        <a href="Brosur_belakang.jpeg" download class="download-btn">📂 Brosur Belakang</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-box" style="background: linear-gradient(135deg, #114b2d 0%, #072716 100%); color:white; display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="color:var(--emas-lembut); margin-bottom:15px;">Biaya Pendaftaran</h3>
+                <div class="biaya-row"><span>1. Uang Pendaftaran</span><span>Rp. 200.000</span></div>
+                <div class="biaya-row"><span>2. Infaq Bangunan</span><span>Rp. 260.000</span></div>
+                <div class="biaya-row"><span>3. SPP/Syahriah Satu Tahun</span><span>Rp. 240.000</span></div>
+                <div class="biaya-row"><span>4. DPU/Makan</span><span>Rp. 400.000</span></div>
+                <div class="biaya-row"><span>5. Seragam</span><span>Rp. 200.000</span></div>
+                <div class="biaya-row total"><span>Total Pengeluaran</span><span>Rp. 1.300.000</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER KONTAK DAN LOKASI (PALING BAWAH) -->
+    <footer id="kontak">
+        <div class="footer-layout">
+            <div class="footer-about">
+                <h3>Pondok Pesantren Miftahul Huda 453</h3>
+                <p>Membentuk santri unggulan berwawasan nasional, bertumpu pada kitab kuning, serta cakap dalam urusan syariat dan kepemimpinan umat.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Hubungi Kantor Sekretariat:</h3>
+                <p>📍 <strong>Alamat:</strong> Jl. Pst. Miftahul Huda 453 Sinar Jaya, Desa Sinar Mulya, Kec. Banyumas, Kab. Pringsewu, Lampung.</p>
+                <p>📝 Untuk pendaftaran dan administrasi keuangan, wali santri diharap melakukan ijab qobul langsung di lokasi pesantren.</p>
+                <p>📞 Ust Bahrul Ulumuddin (+62 852-6683-4047)</p>
+                <p>📞 Muhammad Arip Abdullah (+62 877-1108-3098)</p>
+                <p>📞 Irfan Hilmi (+62 856-0929-4118)</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pondok Pesantren Miftahul Huda 453. Semua Hak Dilindungi Undang-Undang.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
